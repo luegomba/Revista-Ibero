@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata.woff2') format('woff2'),
+        url('Alverata.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-Bold.woff2') format('woff2'),
+        url('Alverata-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-BoldItalic.woff2') format('woff2'),
+        url('Alverata-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alverata';
+    src: url('Alverata-Italic.woff2') format('woff2'),
+        url('Alverata-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Praxis Next';
+    src: url('PraxisNext-CnBold.woff2') format('woff2'),
+        url('PraxisNext-CnBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Praxis Next';
+    src: url('PraxisNext-CnMedium.woff2') format('woff2'),
+        url('PraxisNext-CnMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Praxis Next';
+    src: url('PraxisNext-CnSemiBold.woff2') format('woff2'),
+        url('PraxisNext-CnSemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Praxis Next';
+    src: url('PraxisNext-CnMediumIt.woff2') format('woff2'),
+        url('PraxisNext-CnMediumIt.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Praxis Next';
+    src: url('PraxisNext-CnBoldIt.woff2') format('woff2'),
+        url('PraxisNext-CnBoldIt.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('MyriadPro-Semibold.woff2') format('woff2'),
+        url('MyriadPro-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
