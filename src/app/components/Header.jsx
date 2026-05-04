@@ -53,18 +53,25 @@ export default function Header({ sections = [], latestSlug = null }) {
     const pathname = usePathname();
     const isArticle = pathname?.startsWith("/posts/");
 
-    // Ajustar margin-top del contenedor principal según altura del header
+    // Ajustar padding-top del body según la altura real del header
     useEffect(() => {
         const header = headerRef.current;
-        const container = document.getElementById("revista-container");
-        if (!header || !container) return;
+        if (!header) return;
+
+        const applyHeight = (h) => {
+            document.body.style.paddingTop = `${h}px`;
+            document.documentElement.style.setProperty("--header-height", `${h}px`);
+            // Compatibilidad con el antiguo selector #revista-container
+            const container = document.getElementById("revista-container");
+            if (container) container.style.marginTop = "0";
+        };
+
+        // Aplicar inmediatamente con el valor actual
+        applyHeight(header.offsetHeight);
 
         const observer = new ResizeObserver((entries) => {
             for (const entry of entries) {
-                const h = entry.contentRect.height;
-                container.style.marginTop = `${h}px`;
-                const stickyNav = document.querySelector(".article-navigation");
-                if (stickyNav) stickyNav.style.top = `${h + 20}px`;
+                applyHeight(entry.contentRect.height);
             }
         });
         observer.observe(header);
