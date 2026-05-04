@@ -2714,3 +2714,138 @@ html.__test-outline body {
 .audioplayerwidth {
   width: inherit !important;
 }
+
+/* ─── Share bar ─────────────────────────────────────────────────────────── */
+
+/* Reposiciona la barra cuando el player está en modo title-visible */
+.article-media.title-visible .share-bar {
+  top: -4.5rem;
+  left: unset;
+  bottom: unset;
+}
+
+/* Padding extra para los botones de compartir/descargar */
+.article-media .options button.share,
+.article-media .options button.download {
+  padding: 1rem;
+}
+
+/* Contenedor en píldora — oculto por defecto */
+.share-bar {
+  display: none;
+  gap: 0.5rem;
+  align-items: center;
+  position: absolute;
+  background-color: color-mix(in srgb, var(--gris-ibero), white 50%);
+  z-index: 99;
+  border-radius: 50px;
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 0px 20px -2px,
+    rgba(0, 0, 0, 0.3) 0px 2px 20px -2px;
+  border: 1px solid hwb(from var(--gris-ibero) h w b / 15%);
+  transition: all ease-in-out 200ms;
+  top: -1.5rem;
+  right: 0rem;
+  padding: 0.5rem;
+}
+
+/* Mobile: reposiciona la barra hacia abajo */
+@media (max-width: 599px) {
+  .share-bar {
+    bottom: -3.5rem;
+    right: 0;
+    left: 0;
+    justify-content: space-between;
+  }
+
+  .article-media .options button.share-btn,
+  .article-media .options a.share-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .share-btn img, .share-btn svg {
+    width: 100% !important;
+    height: 16px !important;
+    padding: 0 !important;
+  }
+
+  .share-bar.active {
+    display: flex;
+    top: unset;
+    bottom: -3rem;
+  }
+}
+
+/* Muestra la barra cuando está activa */
+.share-bar.active {
+  display: flex;
+  top: unset;
+  bottom: -3rem;
+  right: 0;
+}
+
+/* Ícono X oculto por defecto (se muestra cuando el botón está activo) */
+#share-close {
+  display: none;
+}
+
+/* Estado activo del botón "Compartir" */
+button.share.active {
+  background-color: hwb(from var(--gris-ibero) h w b / 50%);
+  border: 1px solid hwb(from var(--gris-ibero) h w b / 50%);
+  padding: 0.75rem !important;
+}
+
+button.share.active:hover {
+  background-color: color-mix(in srgb, var(--gris-ibero), white 30%);
+}
+
+.article-media .options button.share.active:hover svg path {
+  fill: #000;
+}
+
+.article-media .options button.share.active svg path {
+  fill: rgb(30, 30, 30);
+  transition: all ease-in-out 200ms;
+}
+
+/* Toggle de íconos share ↔ X */
+button.share.active #share-close {
+  display: block;
+}
+
+button.share.active #share {
+  display: none;
+}
+
+/* ─── Botones individuales dentro del share-bar ─── */
+.article-media .options button.share-btn,
+.article-media .options a.share-btn {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid hwb(from var(--gris-ibero) h w b / 35%);
+  background: transparent;
+  font-size: 0.9rem;
+  aspect-ratio: 1;
+  transition: background 300ms ease-in-out;
+}
+
+.article-media .options button.share-btn:hover,
+.article-media .options a.share-btn:hover {
+  background: #d6d4d1 !important;
+}
+
+/* Tamaño de íconos dentro de los botones */
+.share-btn img,
+.share-btn svg {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+}
