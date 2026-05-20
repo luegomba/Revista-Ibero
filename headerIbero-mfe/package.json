@@ -1,0 +1,53 @@
+{
+  "name": "@ibero/header-mfe",
+  "version": "1.0.0",
+  "description": "Micro Frontend de Componentes Ibero (Header, MainSection, Footer)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./Header": {
+      "import": "./dist/components/Header.js",
+      "types": "./dist/components/Header.d.ts"
+    },
+    "./MainSection": {
+      "import": "./dist/components/MainSection.js",
+      "types": "./dist/components/MainSection.d.ts"
+    },
+    "./Footer": {
+      "import": "./dist/components/Footer.js",
+      "types": "./dist/components/Footer.d.ts"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "dev": "vite build --watch",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.487.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.5.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
+}

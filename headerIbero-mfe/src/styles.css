@@ -1,0 +1,111 @@
+/* ========================================================================= */
+/* Estilos IBERO */
+/* ========================================================================= */
+
+.rojo-ibero{
+  background-color: #e00034;
+}
+
+.beige-900{
+  background-color: #3E3830;
+}
+.beige-500{
+  background-color: #8F8577;
+}
+.beige-100{
+  background-color: #E1DCD7;
+}
+
+.section-main{
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-subtitle {
+      font-family: Praxis,sans-serif;
+      color: #666;
+      font-size: .875rem;
+      font-weight: 300;
+      letter-spacing: .1875rem;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+}
+.main-title {
+      font-size: 4rem;
+      color: #1a1a1a;
+      font-weight: 400;
+      margin: 0 0 24px 0;
+      max-width: 800px;
+      line-height: 1.2;
+      font-family: Alverata, sans-serif;
+}
+.main-description {
+      color: #666;
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 32px;
+}
+.main-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 32px;
+      background-color: #e00034;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: Praxis, sans-serif;
+}
+
+.main-button:hover {
+      background-color: #c0002a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(224, 0, 52, 0.3);
+}
+
+.main-button:active {
+      transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .main-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .main-description {
+    font-size: 0.9rem;
+  }
+
+  .section-main {
+    padding: 60px 16px;
+  }
+}
+
+/* Font face declarations */
+@font-face {
+  font-family: 'Alverata';
+  src: url('https://fonts.googleapis.com/css2?family=Alverata&display=swap') format('opentype');
+}
+
+@font-face {
+  font-family: 'Praxis';
+  src: url('https://fonts.googleapis.com/css2?family=Praxis&display=swap') format('opentype');
+}
+
+@font-face {
+  font-family: 'Praxis Next';
+  src: url('https://fonts.googleapis.com/css2?family=Praxis&display=swap') format('opentype');
+}
