@@ -10,6 +10,10 @@ import { useEffect } from "react";
 
 export default function ArticleInteractions({ audioSrc, prevArticle, nextArticle }) {
     useEffect(() => {
+        // AbortController: cancela todos los listeners en el cleanup
+        // (evita el doble-attachment de React Strict Mode en desarrollo)
+        const ac = new AbortController();
+        const { signal } = ac;
         // ── Utilidades ────────────────────────────────────────────────
         function showToast(msg) {
             const t = document.getElementById("toast");
@@ -396,11 +400,13 @@ export default function ArticleInteractions({ audioSrc, prevArticle, nextArticle
             const shareBtn = document.querySelector("button.share");
             const shareBar = document.querySelector(".share-bar");
             if (!shareBtn || !shareBar) return;
+            // { signal } asegura que el listener se elimina en cleanup
+            // sin importar cuántas veces React re-ejecute el effect
             shareBtn.addEventListener("click", function () {
                 this.classList.toggle("active");
                 this.classList.toggle("tooltip-css");
                 shareBar.classList.toggle("active");
-            });
+            }, { signal });
             // Intercept share links → popup
             shareBar.querySelectorAll('a[target="_blank"]').forEach((a) => {
                 a.addEventListener("click", (e) => {
@@ -409,7 +415,7 @@ export default function ArticleInteractions({ audioSrc, prevArticle, nextArticle
                     const y = window.top.outerHeight / 2 + window.top.screenY - h / 2;
                     const x = window.top.outerWidth / 2 + window.top.screenX - w / 2;
                     window.open(a.href, "_blank", `width=${w},height=${h},left=${x},top=${y},noopener`);
-                });
+                }, { signal });
             });
         }
 
@@ -461,11 +467,11 @@ export default function ArticleInteractions({ audioSrc, prevArticle, nextArticle
         setupCustomPlayer(); // EQ ya está integrado aquí
         setupShare();
         centerEq();
-        window.addEventListener("resize", centerEq, { passive: true });
+        window.addEventListener("resize", centerEq, { passive: true, signal });
 
         return () => {
+            ac.abort(); // Elimina todos los listeners adjuntados con { signal }
             if (typeof cleanupRO === "function") cleanupRO();
-            window.removeEventListener("resize", centerEq);
         };
     }, []);
 

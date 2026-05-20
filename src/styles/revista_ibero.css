@@ -34,46 +34,113 @@ svg.wave-mask {
 }
 
 @keyframes upDown1 {
-  0%,100% { transform: scaleY(.22); }
-  25%      { transform: scaleY(1.10); }
-  50%      { transform: scaleY(.42); }
-  75%      { transform: scaleY(.85); }
-}
-@keyframes upDown2 {
-  0%,100% { transform: scaleY(.28); }
-  20%     { transform: scaleY(.80); }
-  50%     { transform: scaleY(1.15); }
-  80%     { transform: scaleY(.55); }
-}
-@keyframes upDown3 {
-  0%,100% { transform: scaleY(.24); }
-  30%     { transform: scaleY(.95); }
-  60%     { transform: scaleY(1.05); }
-  85%     { transform: scaleY(.60); }
+
+  0%,
+  100% {
+    transform: scaleY(.22);
+  }
+
+  25% {
+    transform: scaleY(1.10);
+  }
+
+  50% {
+    transform: scaleY(.42);
+  }
+
+  75% {
+    transform: scaleY(.85);
+  }
 }
 
-#eq use, #eq rect {
+@keyframes upDown2 {
+
+  0%,
+  100% {
+    transform: scaleY(.28);
+  }
+
+  20% {
+    transform: scaleY(.80);
+  }
+
+  50% {
+    transform: scaleY(1.15);
+  }
+
+  80% {
+    transform: scaleY(.55);
+  }
+}
+
+@keyframes upDown3 {
+
+  0%,
+  100% {
+    transform: scaleY(.24);
+  }
+
+  30% {
+    transform: scaleY(.95);
+  }
+
+  60% {
+    transform: scaleY(1.05);
+  }
+
+  85% {
+    transform: scaleY(.60);
+  }
+}
+
+#eq use,
+#eq rect {
   fill: var(--eq-color);
   transform-box: fill-box;
   transform-origin: 50% 50%;
   animation: upDown1 var(--eq-speed) ease-in-out infinite;
   animation-delay: calc(var(--i, 0) * -0.06s);
 }
-#eq use:nth-child(3n), #eq rect:nth-child(3n) { animation-name: upDown2; }
-#eq use:nth-child(5n), #eq rect:nth-child(5n) { animation-name: upDown3; }
-#eq.paused use, #eq.paused rect { animation-play-state: paused; }
+
+#eq use:nth-child(3n),
+#eq rect:nth-child(3n) {
+  animation-name: upDown2;
+}
+
+#eq use:nth-child(5n),
+#eq rect:nth-child(5n) {
+  animation-name: upDown3;
+}
+
+#eq.paused use,
+#eq.paused rect {
+  animation-play-state: paused;
+}
 
 @media (prefers-reduced-motion: reduce) {
+
   html:not([data-force-motion]) #eq use,
-  html:not([data-force-motion]) #eq rect { animation: none !important; }
+  html:not([data-force-motion]) #eq rect {
+    animation: none !important;
+  }
 }
 
 /* ─── Base: hidden by default (show only in mobile-player) ─── */
-#mobile-player-close { display: none; }
-.player-art { display: none; }
-.prev, .next { display: none; }
+#mobile-player-close {
+  display: none;
+}
 
-button.prev.is-disabled, button.next.is-disabled {
+.player-art {
+  display: none;
+}
+
+.prev,
+.next {
+  display: none;
+}
+
+button.prev.is-disabled,
+button.next.is-disabled {
   opacity: 0.2;
   cursor: not-allowed;
 }
@@ -98,7 +165,7 @@ body:has(.mobile-player) {
   top: 0;
   width: 100vw;
   left: 0;
-  box-shadow: rgba(0,0,0,0.35) 0px 0px 20px 10px, rgba(0,0,0,0.75) 0px 20px 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 20px 10px, rgba(0, 0, 0, 0.75) 0px 20px 10px 20px;
   border: 1px solid hwb(from var(--gris-ibero) h w b / 50%);
   border-radius: 2rem;
   justify-content: space-between;
@@ -146,9 +213,13 @@ body:has(.mobile-player) {
   opacity: 1;
 }
 
-#articleMedia.article-media.mobile-player .audio-description { display: none; }
+#articleMedia.article-media.mobile-player .audio-description {
+  display: none;
+}
 
-#articleMedia.article-media.mobile-player .audio-info { height: 50px; }
+#articleMedia.article-media.mobile-player .audio-info {
+  height: 50px;
+}
 
 #articleMedia.article-media.mobile-player .audio-container {
   flex-direction: column;
@@ -245,13 +316,15 @@ body:has(.mobile-player) {
   pointer-events: none;
   z-index: 2;
 }
+
 #articleMedia.article-media.mobile-player .audio-title.fade-edges::before {
   left: 0;
-  background: linear-gradient(to right, rgba(230,228,226,0.8), transparent);
+  background: linear-gradient(to right, rgba(230, 228, 226, 0.8), transparent);
 }
+
 #articleMedia.article-media.mobile-player .audio-title.fade-edges::after {
   right: 0;
-  background: linear-gradient(to left, rgba(230,228,226,0.8), transparent);
+  background: linear-gradient(to left, rgba(230, 228, 226, 0.8), transparent);
 }
 
 #articleMedia.article-media.mobile-player .share-bar.active {
@@ -2764,7 +2837,8 @@ html.__test-outline body {
     height: 40px !important;
   }
 
-  .share-btn img, .share-btn svg {
+  .share-btn img,
+  .share-btn svg {
     width: 100% !important;
     height: 16px !important;
     padding: 0 !important;

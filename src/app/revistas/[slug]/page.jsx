@@ -32,10 +32,11 @@ export default async function RevistaPage({ params }) {
                 <article className="index">
                     <div className="headings">
                         <h1 className="article-title">{titulo}</h1>
-                        <h2 className="article-subtitle">OPORTUNIDADES Y DESAFÍOS</h2>
+                        <h2 className="article-subtitle"></h2>
                     </div>
                 </article>
 
+                {/* 
                 {descripcion && (
                     <p className="text-gray-600 text-lg mb-6">
                         {Array.isArray(descripcion)
@@ -43,10 +44,12 @@ export default async function RevistaPage({ params }) {
                             : descripcion}
                     </p>
                 )}
+                */}
 
-                {postsArray.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {postsArray.map((post) => {
+
+                <div class="articles-container">
+                    {postsArray.length > 0 ? (
+                        postsArray.map((post) => {
                             const { titulo, slug, contenido, imagen } = post;
 
                             const resumen = Array.isArray(contenido)
@@ -58,33 +61,38 @@ export default async function RevistaPage({ params }) {
                                 : null;
 
                             return (
-                                <div key={post.id} className="border rounded-lg overflow-hidden shadow">
-                                    {imageUrl && (
-                                        <Image
-                                            src={imageUrl}
-                                            alt={titulo}
-                                            width={600}
-                                            height={400}
-                                            className="w-full h-48 object-cover"
-                                        />
-                                    )}
-                                    <div className="p-4">
-                                        <h2 className="text-xl font-semibold mb-2">{titulo}</h2>
-                                        <p className="text-gray-600 mb-4 text-sm">{resumen}</p>
-                                        <Link
-                                            href={`/posts/${slug}`}
-                                            className="text-blue-600 hover:underline text-sm font-medium"
-                                        >
-                                            Leer más →
-                                        </Link>
+
+                                <Link class="article-link" href={`/posts/${slug}`}>
+                                    <div class="article-card">
+                                        <div class="image">
+                                            <img src="/numero/96/la-voz-de-la-ibero.png" />
+                                            {imageUrl && (
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={titulo}
+                                                    width={600}
+                                                    height={400}
+                                                    className="w-full h-48 object-cover"
+                                                />
+                                            )}
+                                        </div>
+                                        <div class="body">
+                                            <span class="section">Sección</span>
+                                            <h4 class="title">{titulo}</h4>
+                                            <p class="author">Autor</p>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                ) : (
-                    <p className="text-gray-500 mt-6">No hay artículos en esta revista.</p>
-                )}
+                                </Link>
+                            )
+
+
+                        })
+                    ) : (
+                        <p>No hay artículos en esta revista.</p>
+                    )}
+
+                </div>
+
             </main>
         </div>
     );

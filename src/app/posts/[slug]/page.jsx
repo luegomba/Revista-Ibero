@@ -123,10 +123,10 @@ export default async function PostPage({ params }) {
                         return `<a href="${c.url}" target="_blank" rel="noreferrer">${inner}</a>`;
                     }
                     let text = c.text || "";
-                    if (c.bold)      text = `<strong>${text}</strong>`;
-                    if (c.italic)    text = `<em>${text}</em>`;
+                    if (c.bold) text = `<strong>${text}</strong>`;
+                    if (c.italic) text = `<em>${text}</em>`;
                     if (c.underline) text = `<u>${text}</u>`;
-                    if (c.code)      text = `<code>${text}</code>`;
+                    if (c.code) text = `<code>${text}</code>`;
                     return text;
                 })
                 .join("");
